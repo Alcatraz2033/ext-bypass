@@ -50,6 +50,7 @@ process(){
 	for char in '%20' '%0a' '%00' '%0d0a' '/' '.\\' '.' '…' ':'; do
 	    for ext in "${ext_payload[@]}";do
 	        echo "$ext$2" >> wordlist.txt
+		 	echo "$2$ext" >> wordlist.txt
 	        echo "$char$ext$2" >> wordlist.txt
 	        echo "$ext$char$2" >> wordlist.txt
 	        echo "$2$char$ext" >> wordlist.txt
