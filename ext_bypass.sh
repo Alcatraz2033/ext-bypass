@@ -49,15 +49,16 @@ process(){
 
 	for char in '%20' '%0a' '%00' '%0d0a' '/' '.\\' '.' '…' ':'; do
 	    for ext in "${ext_payload[@]}";do
-	        echo "$ext$2" >> wordlist.txt
-		 	echo "$2$ext" >> wordlist.txt
-	        echo "$char$ext$2" >> wordlist.txt
-	        echo "$ext$char$2" >> wordlist.txt
-	        echo "$2$char$ext" >> wordlist.txt
-	        echo "$2$ext$char" >> wordlist.txt
+	        echo "$ext$2" >> list.txt
+		 	echo "$2$ext" >> list.txt
+	        echo "$char$ext$2" >> list.txt
+	        echo "$ext$char$2" >> list.txt
+	        echo "$2$char$ext" >> list.txt
+	        echo "$2$ext$char" >> list.txt
 	    done
 	done
 
+	cat list.txt | sort -u > wordlist.txt && rm list.txt
 	echo -e "\n${WHITE}[${CYAN}+${WHITE}] ${GREEN}Combinaciones guardadas en ${CYAN}wordlist.txt${END}\n"
 	exit 0
 }
